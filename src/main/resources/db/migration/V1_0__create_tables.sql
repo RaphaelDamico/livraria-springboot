@@ -95,7 +95,8 @@ CREATE TABLE public.usuario (
 --ALTER TABLE usuario ADD CONSTRAINT unique_email UNIQUE(user_email);
 
 --Chaves estrangeira
---ALTER TABLE usuario ADD FOREIGN KEY (perfil_id) REFERENCES perfil(perfil_id);
+
+ALTER TABLE usuario ADD FOREIGN KEY (perfil_id) REFERENCES perfil(perfil_id);
 
 ALTER TABLE emprestimo ADD FOREIGN KEY (livro_id) REFERENCES livro(livro_id);
 
