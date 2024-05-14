@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -35,6 +37,10 @@ public class Emprestimo {
 	
 	@Column(name = "valor_emprestimo")
 	private Integer valorEmprestimo;
+	
+	@ManyToOne
+	@JoinColumn(name = "aluno_matricula")
+	private Aluno aluno;
 
 	public Integer getEmprestimoId() {
 		return emprestimoId;
@@ -83,5 +89,15 @@ public class Emprestimo {
 	public void setValorEmprestimo(Integer valorEmprestimo) {
 		this.valorEmprestimo = valorEmprestimo;
 	}
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+	
+	
 	
 }

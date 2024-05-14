@@ -2,6 +2,9 @@ package br.org.serratec.livraria.entitties;
 
 import java.time.LocalDate;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,36 +22,36 @@ public class Aluno {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "aluno_matricula")
 	private Integer alunoMatricula;
-	
+
 	@Column(name = "nome")
 	private String nomeAluno;
-	
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "dat_anascimento")
 	private LocalDate dataNascimento;
-	
+
 	@Column(name = "cpf")
 	private String cpfAluno;
-	
+
 	@Column(name = "logradouro")
 	private String logradouro;
-	
+
 	@Column(name = "numero_logradouro")
 	private String numeroLogradouro;
-	
+
 	@Column(name = "complemento")
 	private String complemento;
-	
+
 	@Column(name = "bairro")
 	private String bairro;
-	
+
 	@Column(name = "cidade")
 	private String cidade;
-
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "aluno")
 	private List<Emprestimo> emprestimos;
-	
+
 	public Integer getAlunoMatricula() {
 		return alunoMatricula;
 	}
@@ -121,17 +124,13 @@ public class Aluno {
 		this.cidade = cidade;
 	}
 
+	public List<Emprestimo> getEmprestimos() {
+		return emprestimos;
+	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void setEmprestimos(List<Emprestimo> emprestimos) {
+		this.emprestimos = emprestimos;
+	}
 	
 	
 
