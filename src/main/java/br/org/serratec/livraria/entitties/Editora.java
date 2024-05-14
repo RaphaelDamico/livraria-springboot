@@ -1,5 +1,7 @@
 package br.org.serratec.livraria.entitties;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,7 +28,10 @@ public class Editora {
 	
 	@Column(name = "imagem_url")
 	private String imagemUrl;
-
+	
+	//PK
+	private List<Livro> listaLivros;
+	
 	public Integer getEditoraId() {
 		return editoraId;
 	}
@@ -65,5 +70,13 @@ public class Editora {
 
 	public void setImamgemUrl(String imagemUrl) {
 		this.imagemUrl = imagemUrl;
+	}
+
+	public List<Livro> getListaLivros() {
+		return listaLivros;
+	}
+
+	public void setListaLivros(List<Livro> listaLivros) {
+		this.listaLivros = listaLivros;
 	}
 }
