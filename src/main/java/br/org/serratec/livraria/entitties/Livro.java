@@ -10,8 +10,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name="livro")
@@ -28,7 +26,6 @@ public class Livro {
 	@Column(name = "nome_autor")
 	private String nomeAutor;
 	
-	@Temporal(TemporalType.DATE)
 	@Column(name = "data_lancamento")
 	private LocalDate dataLancamento;
 	

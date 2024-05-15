@@ -34,7 +34,7 @@ public class UsuarioController {
 		Usuario usuario = usuarioService.findById(id);
 
 		if (usuario == null)
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(usuario, HttpStatus.NOT_FOUND);
 		else
 			return new ResponseEntity<>(usuario, HttpStatus.OK);
 	}

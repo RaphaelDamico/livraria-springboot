@@ -10,8 +10,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "emprestimo")
@@ -21,19 +19,13 @@ public class Emprestimo {
 	@Column(name = "emprestimo_id")
 	private Integer emprestimoId;
 	
-	@Column(name = "aluno_matricula")
-	private Integer alunoMatricula;
-	
-	@Column(name = "livro_id")
-	private Integer livroId;
-	
-	@Temporal(TemporalType.DATE)
 	@Column(name = "data_emprestimo")
 	private LocalDate dataEmprestimo;
+	//private Date dataEmprestimo;
 	
-	@Temporal(TemporalType.DATE)
 	@Column(name = "data_entrega")
 	private LocalDate dataEntrega;
+	//private Date dataEntrega;
 	
 	@Column(name = "valor_emprestimo")
 	private Integer valorEmprestimo;
@@ -41,6 +33,10 @@ public class Emprestimo {
 	@ManyToOne
 	@JoinColumn(name = "aluno_matricula")
 	private Aluno aluno;
+	
+	@ManyToOne
+	@JoinColumn(name="livro_id")
+	private Livro livro;
 
 	public Integer getEmprestimoId() {
 		return emprestimoId;
@@ -48,22 +44,6 @@ public class Emprestimo {
 
 	public void setEmprestimoId(Integer emprestimoId) {
 		this.emprestimoId = emprestimoId;
-	}
-
-	public Integer getAlunoMatricula() {
-		return alunoMatricula;
-	}
-
-	public void setAlunoMatricula(Integer alunoMatricula) {
-		this.alunoMatricula = alunoMatricula;
-	}
-
-	public Integer getLivroId() {
-		return livroId;
-	}
-
-	public void setLivroId(Integer livroId) {
-		this.livroId = livroId;
 	}
 
 	public LocalDate getDataEmprestimo() {
@@ -96,6 +76,14 @@ public class Emprestimo {
 
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
+	}
+
+	public Livro getLivro() {
+		return livro;
+	}
+
+	public void setLivro(Livro livro) {
+		this.livro = livro;
 	}
 	
 	

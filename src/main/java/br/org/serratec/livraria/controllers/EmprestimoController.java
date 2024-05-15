@@ -34,7 +34,7 @@ public class EmprestimoController {
 		Emprestimo emprestimo = emprestimoService.findById(id);
 
 		if (emprestimo == null)
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(emprestimo, HttpStatus.NOT_FOUND);
 		else
 			return new ResponseEntity<>(emprestimo, HttpStatus.OK);
 	}

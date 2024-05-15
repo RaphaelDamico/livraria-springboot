@@ -68,11 +68,11 @@ public class Editora {
 		this.imagemFileName = imagemFileName;
 	}
 
-	public String getImamgemUrl() {
+	public String getImagemUrl() {
 		return imagemUrl;
 	}
 
-	public void setImamgemUrl(String imagemUrl) {
+	public void setImagemUrl(String imagemUrl) {
 		this.imagemUrl = imagemUrl;
 	}
 

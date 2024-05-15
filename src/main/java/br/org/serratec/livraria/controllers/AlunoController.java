@@ -36,7 +36,7 @@ public class AlunoController {
 		Aluno aluno = alunoService.findById(id);
 
 		if (aluno == null)
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(aluno, HttpStatus.NOT_FOUND);
 		else
 			return new ResponseEntity<>(aluno, HttpStatus.OK);
 	}

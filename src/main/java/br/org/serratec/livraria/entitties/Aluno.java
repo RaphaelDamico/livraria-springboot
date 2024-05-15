@@ -26,7 +26,6 @@ public class Aluno {
 	@Column(name = "nome")
 	private String nomeAluno;
 
-	@Temporal(TemporalType.DATE)
 	@Column(name = "dat_anascimento")
 	private LocalDate dataNascimento;
 

@@ -33,9 +33,9 @@ public class LivroController {
 	public ResponseEntity<Livro> findById(@PathVariable Integer id){
 		Livro livro = livroService.findById(id);
 		if (livro == null)
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(livro, HttpStatus.NOT_FOUND);
 		else
-			return new ResponseEntity<>(livro,HttpStatus.OK);
+			return new ResponseEntity<>(livro, HttpStatus.OK);
 	}
 	
 	@PostMapping

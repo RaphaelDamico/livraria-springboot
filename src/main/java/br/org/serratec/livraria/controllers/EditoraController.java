@@ -34,7 +34,7 @@ public class EditoraController {
 		Editora editora = editoraService.findById(id);
 
 		if (editora == null)
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(editora, HttpStatus.NOT_FOUND);
 		else
 			return new ResponseEntity<>(editora, HttpStatus.OK);
 	}

@@ -34,7 +34,7 @@ public class PerfilController {
 		Perfil perfil = perfilService.findById(id);
 
 		if (perfil == null)
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(perfil, HttpStatus.NOT_FOUND);
 		else
 			return new ResponseEntity<>(perfil, HttpStatus.OK);
 	}
