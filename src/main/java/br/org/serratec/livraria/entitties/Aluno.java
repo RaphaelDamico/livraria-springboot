@@ -128,6 +128,11 @@ public class Aluno {
 	public void setEmprestimos(List<Emprestimo> emprestimos) {
 		this.emprestimos = emprestimos;
 	}
+
+	public Object getDescricao() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 
