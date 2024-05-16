@@ -44,9 +44,10 @@ public class PerfilController {
 		return new ResponseEntity<>(perfilService.save(perfil), HttpStatus.CREATED);
 	}
 
-	@PutMapping
-	public ResponseEntity<Perfil> update(@RequestBody Perfil perfil) {
-		return new ResponseEntity<>(perfilService.update(perfil), HttpStatus.OK);
+	@PutMapping(value = "{id}")
+	public ResponseEntity<Perfil> update(@PathVariable Integer id, @RequestBody Perfil perfil) {
+		perfil = perfilService.update(id, perfil);
+		return ResponseEntity.ok().body(perfil);
 	}
 
 	@DeleteMapping("/{id}")

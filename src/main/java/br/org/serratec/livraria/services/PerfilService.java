@@ -26,8 +26,15 @@ public class PerfilService {
 		return perfilRepository.save(perfil);
 	}
 
-	public Perfil update(Perfil perfil) {
-		return perfilRepository.save(perfil);
+	public Perfil update(Integer id, Perfil perfil) {
+		Perfil entidade = perfilRepository.getReferenceById(id);
+		updateData(entidade, perfil);
+		return perfilRepository.save(entidade);
+	}
+	
+	private void updateData(Perfil entidade, Perfil perfil) {
+		entidade.setNome(perfil.getNome());
+		entidade.setDescricao(perfil.getDescricao());
 	}
 
 	public Boolean delete(Integer id) {
