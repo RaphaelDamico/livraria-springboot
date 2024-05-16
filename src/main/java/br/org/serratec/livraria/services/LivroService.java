@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.org.serratec.livraria.entitties.Livro;
-import br.org.serratec.livraria.entitties.Perfil;
 import br.org.serratec.livraria.respositories.LivroRepository;
 
 @Service

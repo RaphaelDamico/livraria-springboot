@@ -46,7 +46,7 @@ public class AlunoController {
 		return new ResponseEntity<>(alunoService.save(aluno), HttpStatus.CREATED);
 	}
 
-	@PutMapping(value = "/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<Aluno> update(@PathVariable Integer id, @RequestBody Aluno aluno) {
 		aluno = alunoService.update(id, aluno);
 		return ResponseEntity.ok().body(aluno);
