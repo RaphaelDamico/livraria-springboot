@@ -26,8 +26,17 @@ public class EditoraService {
 		return editoraRepository.save(editora);
 	}
 
-	public Editora update(Editora editora) {
-		return editoraRepository.save(editora);
+	public Editora update(Integer id, Editora editora) {
+		Editora entidade = editoraRepository.getReferenceById(id);
+		updateData(entidade, editora);
+		return editoraRepository.save(entidade);
+	}
+
+	private void updateData(Editora entidade, Editora editora) {
+		entidade.setNomeEditora(editora.getNomeEditora());
+		entidade.setImagemNome(editora.getImagemNome());
+		entidade.setImagemFileName(editora.getImagemFileName());
+		entidade.setImagemUrl(editora.getImagemUrl());
 	}
 
 	public Boolean delete(Integer id) {

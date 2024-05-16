@@ -46,6 +46,10 @@ public class Usuario {
 		return userId;
 	}
 	
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	
 	public String getUserNome() {
 		return userNome;
 	}
@@ -78,8 +82,6 @@ public class Usuario {
 		this.perfil = perfil;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
+	
 	
 }

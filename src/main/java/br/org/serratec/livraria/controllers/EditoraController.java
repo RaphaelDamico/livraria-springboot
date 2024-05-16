@@ -44,9 +44,10 @@ public class EditoraController {
 		return new ResponseEntity<>(editoraService.save(editora), HttpStatus.CREATED);
 	}
 
-	@PutMapping
-	public ResponseEntity<Editora> update(@RequestBody Editora editora) {
-		return new ResponseEntity<>(editoraService.update(editora), HttpStatus.OK);
+	@PutMapping("/{id}")
+	public ResponseEntity<Editora> update(@PathVariable Integer id, @RequestBody Editora editora) {
+		editora = editoraService.update(id, editora);
+		return ResponseEntity.ok().body(editora);
 	}
 
 	@DeleteMapping("/{id}")

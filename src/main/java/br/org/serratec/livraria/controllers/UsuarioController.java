@@ -44,9 +44,10 @@ public class UsuarioController {
 		return new ResponseEntity<>(usuarioService.save(usuario), HttpStatus.CREATED);
 	}
 
-	@PutMapping
-	public ResponseEntity<Usuario> update(@RequestBody Usuario usuario) {
-		return new ResponseEntity<>(usuarioService.update(usuario), HttpStatus.OK);
+	@PutMapping("/{id}")
+	public ResponseEntity<Usuario> update(@PathVariable Integer id, @RequestBody Usuario usuario) {
+		usuario = usuarioService.update(id, usuario);
+		return ResponseEntity.ok().body(usuario);
 	}
 
 	@DeleteMapping("/{id}")

@@ -26,8 +26,17 @@ public class UsuarioService {
 		return usuarioRepository.save(usuario);
 	}
 
-	public Usuario update(Usuario usuario) {
-		return usuarioRepository.save(usuario);
+	public Usuario update(Integer id, Usuario usuario) {
+		Usuario entidade = usuarioRepository.getReferenceById(id);
+		updateData(entidade, usuario);
+		return usuarioRepository.save(entidade);
+	}
+	
+	private void updateData(Usuario entidade, Usuario usuario) {
+		entidade.setUserNome(usuario.getUserNome());
+		entidade.setUserEmail(usuario.getUserEmail());
+		entidade.setUserPassword(usuario.getUserPassword());
+		entidade.setPerfil(usuario.getPerfil());
 	}
 
 	public Boolean delete(Integer id) {
