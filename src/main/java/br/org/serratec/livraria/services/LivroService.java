@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.org.serratec.livraria.entitties.Livro;
+import br.org.serratec.livraria.entitties.Perfil;
 import br.org.serratec.livraria.respositories.LivroRepository;
 
 @Service
@@ -26,8 +27,17 @@ public class LivroService {
 		return livroRepository.save(livro);
 	}
 	
-	public Livro update(Livro livro) {
-		return livroRepository.save(livro);
+	public Livro update(Integer id, Livro livro) {
+		Livro entidade = livroRepository.getReferenceById(id);
+		updateData(entidade, livro);
+		return livroRepository.save(entidade);
+	}
+	
+	private void updateData(Livro entidade, Livro livro) {
+		entidade.setNomeLivro(livro.getNomeLivro());
+		entidade.setNomeAutor(livro.getNomeAutor());
+		entidade.setDataLancamento(livro.getDataLancamento());
+		entidade.setCodigoIsbn(livro.getCodigoIsbn());
 	}
 	
 	public Boolean delete(Integer id) {

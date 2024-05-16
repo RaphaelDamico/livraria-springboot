@@ -24,8 +24,21 @@ public class AlunoService {
 		return alunoRepository.save(aluno);
 	}
 
-	public Aluno update(Aluno aluno) {
-		return alunoRepository.save(aluno);
+	public Aluno update(Integer id, Aluno aluno) {
+		Aluno entidade = alunoRepository.getReferenceById(id);
+		updateData(entidade, aluno);
+		return alunoRepository.save(entidade);
+	}
+
+	public void updateData(Aluno entidade, Aluno aluno) {
+		entidade.setNomeAluno(aluno.getNomeAluno());
+		entidade.setDataNascimento(aluno.getDataNascimento());
+		entidade.setCpfAluno(aluno.getCpfAluno());
+		entidade.setLogradouro(aluno.getLogradouro());
+		entidade.setNumeroLogradouro(aluno.getNumeroLogradouro());
+		entidade.setComplemento(aluno.getComplemento());
+		entidade.setBairro(aluno.getBairro());
+		entidade.setCidade(aluno.getCidade());
 	}
 
 	public Boolean delete(Integer id) {

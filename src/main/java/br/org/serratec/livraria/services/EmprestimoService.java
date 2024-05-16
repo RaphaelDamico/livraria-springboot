@@ -26,15 +26,25 @@ public class EmprestimoService {
 		return emprestimoRepository.save(emprestimo);
 	}
 
-	public Emprestimo update(Emprestimo emprestimo) {
-		return emprestimoRepository.save(emprestimo);
+	public Emprestimo update(Integer id, Emprestimo emprestimo) {
+		Emprestimo entidade = emprestimoRepository.getReferenceById(id);
+		updateData(entidade, emprestimo);
+		return emprestimoRepository.save(entidade);
+	}
+	
+	private void updateData(Emprestimo entidade, Emprestimo emprestimo) {
+		entidade.setDataEmprestimo(emprestimo.getDataEmprestimo());
+		entidade.setDataEntrega(emprestimo.getDataEntrega());
+		entidade.setValorEmprestimo(emprestimo.getValorEmprestimo());
+		entidade.setAluno(emprestimo.getAluno());
+		entidade.setLivro(emprestimo.getLivro());
 	}
 
 	public Boolean delete(Integer id) {
 		if (emprestimoRepository.existsById(id)) {
 			emprestimoRepository.deleteById(id);
-			Emprestimo emprestimoDeletado = emprestimoRepository.findById(id).orElse(null);
-			if (emprestimoDeletado == null) {
+			Emprestimo EmprestimoDeletado = emprestimoRepository.findById(id).orElse(null);
+			if (EmprestimoDeletado == null) {
 				return true;
 			} else {
 				return false;
