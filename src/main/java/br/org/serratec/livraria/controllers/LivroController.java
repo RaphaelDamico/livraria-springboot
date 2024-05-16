@@ -43,9 +43,10 @@ public class LivroController {
 		return new ResponseEntity<>(livroService.save(livro), HttpStatus.CREATED);
 	}
 	
-	@PutMapping
-	public ResponseEntity<Livro> update(@RequestBody Livro livro) {
-		return new ResponseEntity<>(livroService.update(livro), HttpStatus.OK);
+	@PutMapping("/{id}")
+	public ResponseEntity<Livro> update(@PathVariable Integer id, @RequestBody Livro livro) {
+		livro = livroService.update(id,livro);
+		return new ResponseEntity<>(livro,HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id}")
