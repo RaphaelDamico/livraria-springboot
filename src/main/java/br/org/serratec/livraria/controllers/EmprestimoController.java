@@ -44,9 +44,10 @@ public class EmprestimoController {
 		return new ResponseEntity<>(emprestimoService.save(emprestimo), HttpStatus.CREATED);
 	}
 
-	@PutMapping
-	public ResponseEntity<Emprestimo> update(@RequestBody Emprestimo emprestimo) {
-		return new ResponseEntity<>(emprestimoService.update(emprestimo), HttpStatus.OK);
+	@PutMapping(value = "{id}")
+	public ResponseEntity<Emprestimo> update(@PathVariable Integer id, @RequestBody Emprestimo emprestimo) {
+		emprestimo = emprestimoService.update(id, emprestimo);
+		return ResponseEntity.ok().body(emprestimo);
 	}
 
 	@DeleteMapping("/{id}")
