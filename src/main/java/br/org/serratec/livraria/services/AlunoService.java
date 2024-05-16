@@ -25,8 +25,7 @@ public class AlunoService {
 	}
 
 	public Aluno update(Integer id, Aluno aluno) {
-		@SuppressWarnings("deprecation")
-		Aluno entidade = alunoRepository.getOne(id);
+		Aluno entidade = alunoRepository.getReferenceById(id);
 		updateData(entidade, aluno);
 		return alunoRepository.save(entidade);
 	}
